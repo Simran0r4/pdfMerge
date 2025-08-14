@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF & Image Merger</title>
+    <link rel="stylesheet" href="pdf.css">
+</head>
+<body>
+<!-- Splash Screen -->
+<div id="splash-screen">
+    <h1>Welcome to <span class="brand">dot.pdf</span></h1>
+</div>
+
+<!-- Main App -->
+<div id="main-content" style="display: none;">
+    <!-- Your existing drop area, buttons, etc. go here -->
+</div>
+
+    <div class="container">
+        <h1>Merge Your PDFs & Images</h1>
+
+        <!-- File Upload Area -->
+        <div id="drop-area">
+            <p>Drag & Drop your files here</p>
+            <p>or</p>
+            <input type="file" id="fileElem" multiple accept=".pdf,.jpg,.jpeg,.png">
+            <label for="fileElem" class="button">Browse Files</label>
+        </div>
+<!-- File List Display BELOW the box -->
+<div id="file-list" style="margin-top: 15px; color: rgb(16, 14, 14); text-align: center;">
+    <strong>Number of files selected:</strong> 
+     <ul id="file-names" style="list-style: none; padding: 0; margin-top: 10px;"></ul>
+</div>
+        <!-- Action Buttons -->
+        <button id="mergeBtn" disabled>Merge into One PDF</button>
+        <a id="downloadLink" style="display:none;" download="merged.pdf">Download PDF</a>
+    </div>
+
+    <!-- PDF-LIB Library -->
+    <script src="https://unpkg.com/pdf-lib/dist/pdf-lib.min.js"></script>
+    <!-- FileSaver.js for downloads -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+
+    <script src="pdf.js"></script>
+    <!-- Your existing HTML content -->
+
+<!-- Your other scripts for PDF merge here -->
+
+<script>
+window.addEventListener('load', () => {
+    const splash = document.getElementById('splash-screen');
+    const main = document.getElementById('main-content');
+
+    // Wait a moment before fading out
+    setTimeout(() => {
+        splash.style.opacity = '0';
+
+        // After fade animation ends, hide splash and show main content
+        setTimeout(() => {
+            splash.style.display = 'none';
+            main.style.display = 'block';
+        }, 3000); // Matches the CSS transition time
+    }, 500); // Slight delay before starting fade
+});
+</script>
+</body>
+</html>
+
+</body>
+</html>
